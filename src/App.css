@@ -241,9 +241,6 @@ h2 {
 /* CSS untuk galeri otomatis yang bergulir ke kanan dan berbalik */
 .image-scroll-container {
   white-space: nowrap;
-  /* Menghindari gambar menggulung ke baris berikutnya */
-
-  /* Animasi bergulir maju-mundur */
   animation: scroll 30s linear infinite alternate;
 }
 
@@ -255,19 +252,15 @@ h2 {
 
   100% {
     transform: translateX(-100%);
-    /* Bergulir ke kiri sejauh satu gambar */
   }
 }
 
 /* Gambar dalam galeri */
 .image-gallery {
   display: inline-block;
-  /* Memastikan gambar tampil dalam satu baris */
   max-width: 100%;
-  /* Memastikan gambar sesuai dalam container */
   height: auto;
   margin-right: 10px;
-  /* Memberi jarak antara gambar */
 }
 
 /* end gallery */
