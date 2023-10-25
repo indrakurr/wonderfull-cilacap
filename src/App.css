@@ -167,8 +167,6 @@ h2 {
 
 /* destinations */
 .container-destinations {
-  background-image: url(./assets/background/bg-destination.png);
-  background-size: cover;
   padding: 70px 115px 70px 115px;
   display: flex;
   flex-direction: column;
@@ -217,8 +215,6 @@ h2 {
 
 /* maps */
 .container-maps {
-  background-image: url(./assets/background/bg-maps.png);
-  background-size: cover;
   padding: 0px 115px 70px 115px;
 }
 
@@ -226,7 +222,7 @@ h2 {
 
 /* gallery */
 .container-gallery {
-  padding: 0px 115px 100px 115px;
+  padding: 70px 115px 100px 115px;
   display: flex;
   flex-direction: column;
   gap: 38px;

@@ -24,7 +24,6 @@ const imageList = [
 function Gallery() {
   return (
     <div className="container-gallery">
-      <hr />
       <div className="text-center">
         <h2>Visual Journey of Cilacap</h2>
       </div>
