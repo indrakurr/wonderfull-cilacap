@@ -1,10 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
+import { Link } from "react-router-dom";
 import image from "../assets/destination.jpg";
-import search from "../assets/icon/search.svg"
+import search from "../assets/icon/search.svg";
 
-function Destination() {
+const Destination = forwardRef((props, ref) => {
   return (
-    <div className="container-destinations">
+    <div className="container-destinations" ref={ref}>
       <h2>Top Destinations to Visit</h2>
       <div className="row">
         <div className="col-lg-3 col-sm-4 col-sm-6 py-3">
@@ -16,9 +17,9 @@ function Destination() {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#/" className="btn btn-primary">
+              <Link to="/detail-destination" className="btn btn-primary">
                 View Detail
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -144,6 +145,6 @@ function Destination() {
       </form>
     </div>
   );
-}
+});
 
 export default Destination;
