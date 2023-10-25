@@ -8,7 +8,7 @@ function DetailDestination() {
     <>
       <Header />
       <div className="container-detail col-xl-12 col-lg-12 col-sm-12">
-        <h2>Detail Destination</h2>
+        <h2>Detail Destination 1</h2>
         <div className="img-container">
           <img src={detailImage} alt="..." />
         </div>

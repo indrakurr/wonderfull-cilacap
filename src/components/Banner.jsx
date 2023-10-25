@@ -1,6 +1,8 @@
-function Banner() {
+import React, { forwardRef } from "react";
+
+const Banner = forwardRef((props, ref) => {
   return (
-    <div className="container-fluid banner d-flex align-items-center">
+    <div className="container-fluid banner d-flex align-items-center" ref={ref}>
       <div className="container text-center">
         <h1 className="mb-2 text-white">Wonderfull Cilacap</h1>
         <p className="text-light description">
@@ -14,6 +16,6 @@ function Banner() {
       </div>
     </div>
   );
-}
+});
 
 export default Banner;

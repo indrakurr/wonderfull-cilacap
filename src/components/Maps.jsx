@@ -1,7 +1,9 @@
-function Maps() {
+import React, { forwardRef } from "react";
+
+const Maps =forwardRef((props, ref) => {
   return (
     <>
-      <div className="container-maps">
+      <div className="container-maps" ref={ref}>
         <div className="row">
           <div className="text-center">
             <div className="my-5">
@@ -23,6 +25,6 @@ function Maps() {
       </div>
     </>
   );
-}
+});
 
 export default Maps;
