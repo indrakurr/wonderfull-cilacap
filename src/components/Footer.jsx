@@ -26,7 +26,7 @@ const Footer = (props) => {
               <img src={logo} alt="Logo" width="110px" />
             </div>
             <p>
-              "Wonderful Cilacap" is a tourism website that showcases the
+              Wonderful Cilacap is a tourism website that showcases the
               natural and cultural wonders of Cilacap, Central Java. Created as
               a comprehensive guide for travelers looking to explore the charms
               of this city, the website offers reliable information, beautiful
