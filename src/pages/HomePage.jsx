@@ -54,14 +54,25 @@ function HomePage () {
 
     return (
       <div className="home-page">
-        <Header scrollToBanner={scrollToBanner} scrollToAbout={scrollToAbout} scrollToHistory={scrollToHistory} scrollToDestination={scrollToDestination} scrollToMaps={scrollToMaps} scrollToGallery={scrollToGallery}/>
-        <Banner ref={banner}/>
-        <About ref={about}/>
-        <History ref={history}/>
+        <Header
+          scrollToBanner={scrollToBanner}
+          scrollToAbout={scrollToAbout}
+          scrollToHistory={scrollToHistory}
+          scrollToDestination={scrollToDestination}
+          scrollToMaps={scrollToMaps}
+          scrollToGallery={scrollToGallery}
+        />
+        <Banner ref={banner} />
+        <About ref={about} />
+        <History ref={history} />
         <Destination ref={destination} />
-        <Maps ref={maps}/>
+        <Maps ref={maps} />
         <Gallery ref={gallery} />
-        <Footer />
+        <Footer
+          scrollToBanner={scrollToBanner}
+          scrollToAbout={scrollToAbout}
+          scrollToDestination={scrollToDestination}
+        />
       </div>
     );
 }

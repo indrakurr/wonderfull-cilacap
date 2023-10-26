@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../assets/icon/wonderfull-cilacap-logo.png";
 
 const Header = (props) => {
@@ -20,7 +21,7 @@ const Header = (props) => {
 
   const handleMapsClick = () => {
     props.scrollToMaps();
-  }
+  };
 
   const handleGalleryClick = () => {
     props.scrollToGallery();
@@ -85,9 +86,9 @@ const Header = (props) => {
             </li>
           </ul>
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <button className="btn btn-primary">Login</button>
-            </li>
+            <Link to="/login" className="btn btn-primary">
+              Login
+            </Link>
           </ul>
         </div>
       </nav>
