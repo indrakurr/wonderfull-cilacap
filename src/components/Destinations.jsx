@@ -132,12 +132,18 @@ const Destination = forwardRef((props, ref) => {
       <form
         className="d-flex search col-xl-12 col-md-8 col-sm-8 justify-content-center"
         role="search"
+        id="search"
       >
         <input
           className="form-control me-2"
           type="search"
           placeholder="Search destination"
           aria-label="Search"
+          style={{
+            borderRadius: "20px",
+            boxShadow: "0px 4px 40px 0px rgba(115, 115, 115, 0.2)",
+            marginTop: "30px",
+          }}
         />
         <button className="input-group-text" type="submit">
           <img src={search} alt="search" />
