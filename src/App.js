@@ -3,7 +3,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import DetailDestination from "./pages/DetailDestination";
 import LoginPage from "./pages/LoginPage";
-import AddDestination from "./pages/AddDestination";
+import AddDestination from "./pages/AddDestination"
 import ManageDestination from "./pages/ManageDestination";
 
 function App() {
