@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, forwardRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchGetDestinations,
@@ -7,7 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import search from "../assets/icon/search.svg";
 
-const Destination = () => {
+const Destination = forwardRef((props, ref) => {
   const stateDestinations = useSelector(selectDestinations);
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const Destination = () => {
   }, [dispatch]);
 
   return (
-    <div className="container-destinations">
+    <div className="container-destinations" ref={ref}>
       <h2>Top Destinations to Visit</h2>
       {stateDestinations.status === "loading" && (
         <div className="loading-indicator">Loading...</div>
@@ -77,6 +77,6 @@ const Destination = () => {
       </form>
     </div>
   );
-};
+});
 
 export default Destination;
