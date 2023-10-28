@@ -1,16 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import { createRoot } from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store"; // Sesuaikan dengan path modul store Anda
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
