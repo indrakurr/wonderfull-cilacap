@@ -1,9 +1,10 @@
+import React, { forwardRef } from "react";
 import History1 from "../assets/history1.png"
 import History2 from "../assets/history2.png"
 
-function History () {
+const History = forwardRef((props, ref) => {
     return (
-      <div className="container-history">
+      <div className="container-history" ref={ref}>
         <h2 className="title-history">History of Cilacap</h2>
         <div className="card-history">
           <div className="row no-gutters">
@@ -12,7 +13,9 @@ function History () {
             </div>
             <div className="col-xl-7 col-md-12 col-sm-12 d-flex align-items-center">
               <div className="card-body-history">
-                <h4 className="card-title-history">Cilacap during the Kingdom era</h4>
+                <h4 className="card-title-history">
+                  Cilacap during the Kingdom era
+                </h4>
                 <p className="card-text">
                   Cilacap, located in the Central Java Province of Indonesia,
                   has a rich and captivating history during the kingdom era.
@@ -41,7 +44,9 @@ function History () {
             </div>
             <div className="col-xl-7 col-md-12 col-sm-12 d-flex align-items-center">
               <div className="card-body">
-                <h4 className="card-title-history">Cilacap during the Colonial era</h4>
+                <h4 className="card-title-history">
+                  Cilacap during the Colonial era
+                </h4>
                 <p className="card-text">
                   During the colonial era, Cilacap, a coastal town in Central
                   Java, Indonesia, bore witness to a tumultuous chapter in its
@@ -62,6 +67,6 @@ function History () {
         </div>
       </div>
     );
-}
+});
 
 export default History;

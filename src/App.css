@@ -1,7 +1,9 @@
-body {
+body,
+html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  height: 100%;
 }
 
 /* navbar */
@@ -186,6 +188,10 @@ h2 {
   box-shadow: 0px 3.2777px 8.74054px -1.09257px rgba(50, 50, 71, 0.05), 0px 0px 21.85134px 4.37027px rgba(12, 26, 75, 0.08);
 }
 
+.card-body {
+  width: 100%;
+}
+
 .card-img-top {
   border-radius: 15px !important;
 }
@@ -199,9 +205,6 @@ h2 {
 
 .form-control {
   width: 600px !important;
-  border-radius: 20px !important;
-  box-shadow: 0px 4px 40px 0px rgba(115, 115, 115, 0.2);
-  margin-top: 30px;
 }
 
 .input-group-text {
@@ -241,9 +244,6 @@ h2 {
 /* CSS untuk galeri otomatis yang bergulir ke kanan dan berbalik */
 .image-scroll-container {
   white-space: nowrap;
-  /* Menghindari gambar menggulung ke baris berikutnya */
-
-  /* Animasi bergulir maju-mundur */
   animation: scroll 30s linear infinite alternate;
 }
 
@@ -255,19 +255,15 @@ h2 {
 
   100% {
     transform: translateX(-100%);
-    /* Bergulir ke kiri sejauh satu gambar */
   }
 }
 
 /* Gambar dalam galeri */
 .image-gallery {
   display: inline-block;
-  /* Memastikan gambar tampil dalam satu baris */
   max-width: 100%;
-  /* Memastikan gambar sesuai dalam container */
   height: auto;
   margin-right: 10px;
-  /* Memberi jarak antara gambar */
 }
 
 /* end gallery */
@@ -304,3 +300,61 @@ h2 {
 }
 
 /* end detail destination */
+
+/* sidebar */
+.sidebar {
+  min-height: 100%;
+  background-color: #0F38A1;
+}
+
+.sidebar-logo {
+  padding-left: 10px;
+}
+
+.flex-column {
+  margin-top: 20px;
+}
+
+#sidebar ul {
+  min-height: 89.8vh;
+  border-radius: 10px;
+  gap: 10px;
+  padding: 5px;
+}
+
+.sidebar-item {
+  background-color: #0069FF;
+  border-radius: 10px;
+}
+
+/* end sidebar */
+
+/* form add destination */
+h3 {
+  color: #0F38A1 !important;
+  font-family: Poppins;
+  font-size: 25px !important;
+  font-weight: 600 !important;
+  background-color: #e9e9e9;
+  padding: 20px;
+}
+
+.form-add {
+  margin-left: 65px;
+  background-color: #e9e9e9;
+  padding: 20px;
+  border-radius: 15px;
+}
+/* end form */
+
+/* manage destination */
+.manage-destination {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 60px;
+  background-color: #e9e9e9;
+  padding: 20px;
+  border-radius: 15px;
+}
+/* end manage */

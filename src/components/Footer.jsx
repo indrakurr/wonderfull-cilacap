@@ -4,7 +4,19 @@ import instagramLogo from "../assets/icon/instagram.svg";
 import linkedinLogo from "../assets/icon/linkedin.svg";
 import githubLogo from "../assets/icon/github.svg";
 
-function Footer() {
+const Footer = (props) => {
+  const handleBannerClick = () => {
+    props.scrollToBanner();
+  };
+
+  const handleAboutClick = () => {
+    props.scrollToAbout();
+  };
+
+  const handleDestinationClick = () => {
+    props.scrollToDestination();
+  };
+
   return (
     <div className="container-footer text-center text-lg-start text-white">
       <section>
@@ -14,7 +26,7 @@ function Footer() {
               <img src={logo} alt="Logo" width="110px" />
             </div>
             <p>
-              "Wonderful Cilacap" is a tourism website that showcases the
+              Wonderful Cilacap is a tourism website that showcases the
               natural and cultural wonders of Cilacap, Central Java. Created as
               a comprehensive guide for travelers looking to explore the charms
               of this city, the website offers reliable information, beautiful
@@ -22,24 +34,26 @@ function Footer() {
               tourism experience.
             </p>
           </div>
-         {/* Grid column */}
+          {/* Grid column */}
           <hr className="w-100 clearfix d-md-none" />
           <div className="col-md-3 col-lg-2 col-xl-3 mx-auto mt-3">
-            <h4 className="mb-4 font-weight-bold">
-              Wonderfull Cilacap Menu
-            </h4>
+            <h4 className="mb-4 font-weight-bold">Wonderfull Cilacap Menu</h4>
             <p>
-              <a className="text-white" href="/#">
+              <a className="text-white" href="/#" onClick={handleBannerClick}>
                 Home
               </a>
             </p>
             <p>
-              <a className="text-white" href="/#">
+              <a className="text-white" href="/#" onClick={handleAboutClick}>
                 About
               </a>
             </p>
             <p>
-              <a className="text-white" href="/#">
+              <a
+                className="text-white"
+                href="/#"
+                onClick={handleDestinationClick}
+              >
                 Destinations
               </a>
             </p>
@@ -84,6 +98,6 @@ function Footer() {
       </section>
     </div>
   );
-}
+};
 
 export default Footer;
