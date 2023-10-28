@@ -63,7 +63,7 @@ function AddDestination() {
               <input
                 type="text"
                 className={`form-control ${errors.name ? "is-invalid" : ""}`}
-                id="name"
+                id="destinationName"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -79,7 +79,7 @@ function AddDestination() {
               <input
                 type="file"
                 className="form-control"
-                id="image"
+                id="destinationImage"
                 name="image"
                 value={formData.image}
                 onChange={handleChange}
