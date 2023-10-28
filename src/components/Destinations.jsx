@@ -1,9 +1,6 @@
 import React, { useEffect, forwardRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchGetDestinations,
-  selectDestinations,
-} from "../store/getDestinationSlice";
+import { fetchGetDestinations, selectDestinations,} from "../store/getDestinationSlice";
 import { Link } from "react-router-dom";
 import search from "../assets/icon/search.svg";
 
