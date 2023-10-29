@@ -194,6 +194,9 @@ h2 {
 
 .card-img-top {
   border-radius: 15px !important;
+  height: 215px;
+  overflow: hidden;
+  position: relative;
 }
 
 .card-title {
@@ -214,6 +217,9 @@ h2 {
   margin-top: 30px;
 }
 
+.card-text-overview {
+  height: 45px;
+}
 /* end destinations */
 
 /* maps */
