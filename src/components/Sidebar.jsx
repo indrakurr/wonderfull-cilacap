@@ -1,12 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/icon/wonderful-cilacap-white-logo.png";
 
 const Sidebar = () => {
+  const location = useLocation();
+
   return (
     <nav id="sidebar" className="col-md-3 col-lg-2 d-md-block sidebar">
       <div className="container-sidebar">
-        <a className="navbar-brand d-flex justify-content-start mt-3 sidebar-logo" href="/#">
+        <a
+          className="navbar-brand d-flex justify-content-start mt-3 sidebar-logo"
+          href="/#"
+        >
           <img
             src={logo}
             alt="logo"
@@ -16,7 +21,16 @@ const Sidebar = () => {
           />
         </a>
         <ul className="nav flex-column">
-          <li className="nav-item sidebar-item">
+          <li
+            className={`nav-item sidebar-item ${
+              location.pathname === "/" ? "active" : ""
+            }`}
+          >
+            <Link to="/" className="nav-link text-white">
+              Home Page
+            </Link>
+          </li>
+          <li className={`nav-item sidebar-item ${location.pathname === '/manage-destination' ? 'active' : ''}`}>
             <Link to="/manage-destination" className="nav-link text-white">
               Manage Destination
             </Link>

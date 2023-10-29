@@ -12,14 +12,14 @@ function AddDestination() {
   const emptyData = {
     destinationName: "",
     destinationImage: "",
-    overview: "",
+    location: "",
     description: "",
   };
 
   const [data, setData] = useState(emptyData);
   const inputImg = useRef();
   const [destinationNameError, setDestinationNameError] = useState("");
-  const [overviewError, setOverviewError] = useState("");
+  const [locationError, setLocationError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -42,12 +42,12 @@ function AddDestination() {
       setDestinationNameError("");
     }
 
-    // Validasi untuk Overview
-    if (data.overview.length > 70) {
-      setOverviewError("Overview should not exceed 70 characters");
+    // Validasi untuk Location
+    if (data.location.length > 70) {
+      setLocationError("Location should not exceed 70 characters");
       isFormValid = false;
     } else {
-      setOverviewError("");
+      setLocationError("");
     }
 
     if (isFormValid) {
@@ -123,20 +123,20 @@ function AddDestination() {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="overview" className="form-label">
-                  Overview
+                <label htmlFor="location" className="form-label">
+                  Location
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="overview"
-                  name="overview"
-                  value={data.overview}
+                  id="location"
+                  name="location"
+                  value={data.location}
                   onChange={handleInput}
                   required
                 />
-                {overviewError && (
-                  <div className="text-danger">{overviewError}</div>
+                {locationError && (
+                  <div className="text-danger">{locationError}</div>
                 )}
               </div>
               <div className="mb-3">
