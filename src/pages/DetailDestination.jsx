@@ -64,7 +64,7 @@ function DetailDestination() {
               alt={stateDestination.data.destinationName}
             />
           </div>
-          <p>{stateDestination.data.description}</p>
+          <p className="text-justify">{stateDestination.data.description}</p>
         </div>
       )}
       <Footer />

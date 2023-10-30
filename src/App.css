@@ -27,9 +27,17 @@ ul {
 }
 
 .dropdown-menu {
-  background-color: rgba(255, 255, 255, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px !important;
 }
+
+.dropdown-item {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px;
+}
+
 /* navbar end */
 
 /* banner */
@@ -310,6 +318,10 @@ h2 {
   height: auto;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 /* end detail destination */
 
 /* sidebar */
@@ -358,6 +370,11 @@ h3 {
   background-color: #e9e9e9;
   padding: 20px;
   border-radius: 15px;
+  width: max-content !important;
+}
+
+.description-form {
+  height: 200px;
 }
 
 /* end form */
