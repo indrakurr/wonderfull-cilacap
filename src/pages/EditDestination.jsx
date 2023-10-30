@@ -1,32 +1,47 @@
 import { useDispatch } from "react-redux";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { fetchPostDestination } from "../store/createDestination";
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchUpdateDestination } from "../store/updateDestination"
 import Sidebar from "../components/Sidebar";
+import { APIDestination } from "../apis/APIDestination";
 
-function AddDestination() {
+function EditDestination() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const emptyData = {
+  const [data, setData] = useState({
     destinationName: "",
     destinationImage: "",
     location: "",
     description: "",
-  };
+  });
 
-  const [data, setData] = useState(emptyData);
+
+  
   const inputImg = useRef();
   const [destinationNameError, setDestinationNameError] = useState("");
   const [locationError, setLocationError] = useState("");
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const destinationData = await APIDestination.getDestinationById(id);
+        setData(destinationData);
+      } catch (error) {
+        console.error("Error fetching destination data:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     let isFormValid = true;
 
-    // Validasi untuk Destination Name
+    // Validation for Destination Name
     if (data.destinationName.length === 0) {
       setDestinationNameError("Form must be filled in!");
       isFormValid = false;
@@ -42,7 +57,7 @@ function AddDestination() {
       setDestinationNameError("");
     }
 
-    // Validasi untuk Location
+    // Validation for Location
     if (data.location.length > 70) {
       setLocationError("Location should not exceed 70 characters");
       isFormValid = false;
@@ -51,20 +66,15 @@ function AddDestination() {
     }
 
     if (isFormValid) {
-      dispatch(
-        fetchPostDestination({
-          id: nextId++,
-          ...data,
-        })
-      );
-      setData(emptyData);
-      inputImg.current.value = "";
-      inputImg.current.type = "text";
-      inputImg.current.type = "file";
-      const returnTo = "/add-destination";
-      navigate(returnTo);
-
-      window.alert("Thank You! Destination added successfully");
+      // Dispatch an action to update destination data based on 'id' with the new 'data'.
+      try {
+        await dispatch(fetchUpdateDestination({ id, data}))
+        const returnTo = "/manage-destination"
+        navigate(returnTo);
+        window.alert("Thank You! Destination Updated successfully");
+      } catch (error) {
+        console.error("Error updatinf destination:", error);
+      }
     }
   };
 
@@ -89,7 +99,7 @@ function AddDestination() {
           <div className="col-md-10 p-0">
             <h3>Admin Dashboard</h3>
             <Form className="col-md-6 my-5 form-add" onSubmit={handleSubmit}>
-              <h2>Add Destination</h2>
+              <h2>Update Destination</h2>
               <div className="mb-3">
                 <label htmlFor="destinationName" className="form-label">
                   Destination Name
@@ -152,7 +162,7 @@ function AddDestination() {
                 />
               </div>
               <button type="submit" className="btn btn-primary">
-                Submit
+                Update
               </button>
             </Form>
           </div>
@@ -162,6 +172,4 @@ function AddDestination() {
   );
 }
 
-let nextId = 1;
-
-export default AddDestination;
+export default EditDestination;

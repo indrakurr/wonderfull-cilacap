@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchGetDestinations,
   selectDestinations,
-} from "../store/getDestinationSlice";
+} from "../store/getDestination";
 import ThreeDots from "react-loading-skeleton";
 import Sidebar from "../components/Sidebar";
 import { Table } from "react-bootstrap";
@@ -11,6 +11,7 @@ import viewIcon from "../assets/icon/eye.svg";
 import editIcon from "../assets/icon/pencil-square.svg";
 import deleteIcon from "../assets/icon/trash.svg";
 import { fetchDeleteDestination } from "../store/deleteDestination";
+import { Link } from "react-router-dom";
 
 function ManageDestination() {
   const [isReload, setIsReload] = useState(false);
@@ -99,12 +100,13 @@ function ManageDestination() {
                           >
                             <img src={viewIcon} alt="view" />
                           </button>
-                          <button
+                          <Link
+                            to={`/edit-destination/${destination.id}`}
                             className="btn btn-success"
                             style={{ width: "auto", marginRight: "5px" }}
                           >
                             <img src={editIcon} alt="edit" />
-                          </button>
+                          </Link>
                           <button
                             className="btn btn-danger"
                             style={{ width: "auto", marginRight: "5px" }}

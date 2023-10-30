@@ -13,24 +13,29 @@ const initialState = {
 };
 
 const deleteDestinationSlice = createSlice({
-  name: "destination",
+  name: "destinations",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase("fetch/deleteDestination/pending", (state) => {
+    builder.addCase(fetchDeleteDestination.fulfilled, (state, { payload }) => {
+      state.status = "success";
+      state.data = payload;
+
+      // Hapus destinasi yang dihapus dari state
+      state.data = state.data.filter(
+        (destination) => destination.id !== payload.id
+      );
+    });
+    builder.addCase(fetchDeleteDestination.pending, (state) => {
       state.status = "loading";
       state.message = "";
     });
-    builder.addCase("fetch/deleteDestination/fulfilled", (state, { payload }) => {
-      state.status = "success";
-      state.data = payload;
-    });
-    builder.addCase("fetch/deleteDestination/rejected", (state, { error }) => {
+    builder.addCase(fetchDeleteDestination.rejected, (state, { error }) => {
       state.status = "failed";
-      state.data = error.stack;
+      state.message = error.message;
     });
   },
 });
 
-export const selectDestination = (state) => state.destination;
+export const selectDestinations = (state) => state.products;
 
 export default deleteDestinationSlice.reducer;

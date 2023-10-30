@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import {
   fetchGetDestinationById,
   selectDestination,
-} from "../store/getDestinationSliceById";
+} from "../store/getDestinationById";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ThreeDots from "react-loading-skeleton";
-
+import ThreeDots from "react-loading-icons/dist/esm/components/three-dots";
 
 function DetailDestination() {
   const { id } = useParams();

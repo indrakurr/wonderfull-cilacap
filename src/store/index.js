@@ -4,8 +4,8 @@ import persistStore from "redux-persist/lib/persistStore";
 import persistReducer from "redux-persist/lib/persistReducer";
 import storage from "redux-persist/lib/storage";
 
-import destinations from "./getDestinationSlice"
-import destination from "./getDestinationSliceById";
+import destinations from "./getDestination";
+import destination from "./getDestinationById";
 
 const rootReducer = combineReducers({ destinations, destination });
 

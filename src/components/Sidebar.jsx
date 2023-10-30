@@ -10,7 +10,7 @@ const Sidebar = () => {
       <div className="container-sidebar">
         <a
           className="navbar-brand d-flex justify-content-start mt-3 sidebar-logo"
-          href="/#"
+          href="/manage-destination"
         >
           <img
             src={logo}
@@ -30,12 +30,20 @@ const Sidebar = () => {
               Home Page
             </Link>
           </li>
-          <li className={`nav-item sidebar-item ${location.pathname === '/manage-destination' ? 'active' : ''}`}>
+          <li
+            className={`nav-item sidebar-item ${
+              location.pathname === "/manage-destination" ? "active" : ""
+            }`}
+          >
             <Link to="/manage-destination" className="nav-link text-white">
               Manage Destination
             </Link>
           </li>
-          <li className="nav-item sidebar-item">
+          <li
+            className={`nav-item sidebar-item ${
+              location.pathname === "/add-destination" ? "active" : ""
+            }`}
+          >
             <Link to="/add-destination" className="nav-link text-white">
               Add Destination
             </Link>
