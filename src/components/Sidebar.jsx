@@ -27,7 +27,7 @@ const Sidebar = () => {
             }`}
           >
             <Link to="/" className="nav-link text-white">
-              Home Page
+              Back to Home
             </Link>
           </li>
           <li

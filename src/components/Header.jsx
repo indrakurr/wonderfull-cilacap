@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+import auth from "../utils/auth";
 import Logo from "../assets/icon/wonderfull-cilacap-logo.png";
 
 const Header = (props) => {
@@ -86,9 +88,25 @@ const Header = (props) => {
             </li>
           </ul>
           <ul className="navbar-nav">
-            <Link to="/login" className="btn btn-primary">
-              Login
-            </Link>
+            {auth.isAuthorized() ? (
+              <Dropdown>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                  User Menu
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item>
+                    <ButtonAdmin />
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <ButtonLogout />
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : (
+              <li className="nav-item">
+                <ButtonLogin />
+              </li>
+            )}
           </ul>
         </div>
       </nav>
@@ -97,3 +115,29 @@ const Header = (props) => {
 };
 
 export default Header;
+
+function ButtonLogin () {
+  return (
+    <Link to="/login" className="btn btn-primary">
+      Login
+    </Link>
+  );
+}
+function ButtonLogout() {
+  return (
+    <a
+      className="btn btn-danger"
+      href="/#"
+      onClick={() => auth.logout()}
+    >
+      Logout
+    </a>
+  );
+}
+function ButtonAdmin() {
+  return (
+    <Link to="/manage-destination" className="btn btn-primary">
+      Admin
+    </Link>
+  );
+}
