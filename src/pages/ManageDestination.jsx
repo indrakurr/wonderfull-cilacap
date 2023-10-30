@@ -51,8 +51,8 @@ function ManageDestination() {
               <div className="container-detail">
                 <div className="loading-indicator d-flex justify-content-center mt-5 mb-5">
                   <ThreeCircles
-                    height="100"
-                    width="100"
+                    height="130"
+                    width="130"
                     color="blue"
                     wrapperStyle={{}}
                     wrapperClass=""

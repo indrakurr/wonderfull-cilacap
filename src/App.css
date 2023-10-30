@@ -325,6 +325,14 @@ h2 {
 /* end detail destination */
 
 /* sidebar */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
 .sidebar {
   min-height: 100%;
   background-color: #0F38A1;
@@ -351,6 +359,10 @@ h2 {
 
 .sidebar-item.active {
   background-color: #0069FF;
+}
+
+.icon-sidebar {
+  margin-right: 10px;
 }
 
 /* end sidebar */
@@ -381,7 +393,13 @@ h3 {
 
 /* manage destination */
 .content {
+  margin-left: 256px;
   background-color: #e9e9e9;
+}
+
+.content-add {
+  margin-left: 256px;
+  background-color: #ffffff;
 }
 
 .manage-destination {
@@ -407,5 +425,4 @@ h3 {
   font-size: 25px !important;
   font-weight: 600 !important;
 }
-
 /* end modal */

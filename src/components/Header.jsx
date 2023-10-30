@@ -59,34 +59,34 @@ const Header = (props) => {
               </a>
             </li>
             <li className="nav-item" onClick={handleAboutClick}>
-              <a className="nav-link" href="#/">
+              <a className="nav-link" href="/#about">
                 About
               </a>
             </li>
             <li className="nav-item" onClick={handleHistoryClick}>
-              <a className="nav-link" href="#/">
+              <a className="nav-link" href="/#history">
                 History
               </a>
             </li>
             <li className="nav-item" onClick={handleDestinationClick}>
-              <a className="nav-link" href="#/">
+              <a className="nav-link" href="/#destination">
                 Destinations
               </a>
             </li>
             <li className="nav-item" onClick={handleMapsClick}>
-              <a className="nav-link" href="#/">
+              <a className="nav-link" href="/#maps">
                 Maps
               </a>
             </li>
             <li className="nav-item" onClick={handleGalleryClick}>
-              <a className="nav-link" href="#/">
+              <a className="nav-link" href="/#gallery">
                 Gallery
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#/">
-                FaQ
-              </a>
+              <Link to="/cilabot" className="nav-link">
+                CilaBot
+              </Link>
             </li>
           </ul>
           <ul className="navbar-nav">
@@ -118,7 +118,7 @@ const Header = (props) => {
 
 export default Header;
 
-function ButtonLogin () {
+function ButtonLogin() {
   return (
     <Link to="/login" className="btn btn-primary">
       Login

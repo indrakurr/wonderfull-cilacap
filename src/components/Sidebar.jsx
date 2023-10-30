@@ -1,6 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/icon/wonderful-cilacap-white-logo.png";
+import homeIcon from "../assets/icon/house.svg";
+import manageIcon from "../assets/icon/tools.svg";
+import addIcon from "../assets/icon/plus-square.svg";
+
 
 const Sidebar = () => {
   const location = useLocation();
@@ -26,7 +30,8 @@ const Sidebar = () => {
               location.pathname === "/" ? "active" : ""
             }`}
           >
-            <Link to="/" className="nav-link text-white">
+            <Link to="/" className="nav-link text-white d-flex align-items-center">
+              <img className="icon-sidebar" src={homeIcon} alt="home" />
               Back to Home
             </Link>
           </li>
@@ -35,7 +40,8 @@ const Sidebar = () => {
               location.pathname === "/manage-destination" ? "active" : ""
             }`}
           >
-            <Link to="/manage-destination" className="nav-link text-white">
+            <Link to="/manage-destination" className="nav-link text-white d-flex align-items-center">
+              <img className="icon-sidebar" src={manageIcon} alt="manage" />
               Manage Destination
             </Link>
           </li>
@@ -44,7 +50,8 @@ const Sidebar = () => {
               location.pathname === "/add-destination" ? "active" : ""
             }`}
           >
-            <Link to="/add-destination" className="nav-link text-white">
+            <Link to="/add-destination" className="nav-link text-white d-flex align-items-center">
+              <img className="icon-sidebar" src={addIcon} alt="add" />
               Add Destination
             </Link>
           </li>
