@@ -6,7 +6,7 @@ import {
 } from "../store/getDestination";
 import { Link } from "react-router-dom";
 import search from "../assets/icon/search.svg";
-import ThreeDots from "react-loading-icons/dist/esm/components/three-dots";
+import { ThreeCircles } from "react-loader-spinner";
 
 const Destination = forwardRef((props, ref) => {
   const stateDestinations = useSelector(selectDestinations);
@@ -20,16 +20,22 @@ const Destination = forwardRef((props, ref) => {
     <div className="container-destinations" ref={ref}>
       <h2>Top Destinations to Visit</h2>
       {stateDestinations.status === "loading" && (
-        <ThreeDots
-          height="400"
-          width="400"
-          radius="9"
-          color="#4fa94d"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{}}
-          wrapperClassName=""
-          visible={true}
-        />
+        <div className="container-detail">
+          <div className="loading-indicator d-flex justify-content-center mt-5 mb-5">
+            <ThreeCircles
+              height="100"
+              width="100"
+              color="blue"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="three-circles-rotating"
+              outerCircleColor=""
+              innerCircleColor=""
+              middleCircleColor=""
+            />
+          </div>
+        </div>
       )}
 
       {stateDestinations.status === "failed" && (

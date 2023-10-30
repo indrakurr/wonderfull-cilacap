@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ThreeDots from "react-loading-icons/dist/esm/components/three-dots";
+import { ThreeCircles } from "react-loader-spinner";
 
 function DetailDestination() {
   const { id } = useParams();
@@ -23,16 +23,22 @@ function DetailDestination() {
     <>
       <Header />
       {stateDestination.status === "loading" && (
-        <ThreeDots
-          height="400"
-          width="400"
-          radius="9"
-          color="#4fa94d"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{}}
-          wrapperClassName=""
-          visible={true}
-        />
+        <div className="container-detail">
+          <div className="loading-indicator d-flex justify-content-center mt-5 mb-5">
+            <ThreeCircles
+              height="100"
+              width="100"
+              color="blue"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="three-circles-rotating"
+              outerCircleColor=""
+              innerCircleColor=""
+              middleCircleColor=""
+            />
+          </div>
+        </div>
       )}
       {stateDestination.status === "failed" && (
         <div>
