@@ -66,7 +66,6 @@ function EditDestination() {
     }
 
     if (isFormValid) {
-      // Dispatch an action to update destination data based on 'id' with the new 'data'.
       try {
         await dispatch(fetchUpdateDestination({ id, data}))
         const returnTo = "/manage-destination"
@@ -154,7 +153,7 @@ function EditDestination() {
                   Description
                 </label>
                 <textarea
-                  className="form-control"
+                  className="form-control description-form"
                   id="description"
                   name="description"
                   value={data.description}

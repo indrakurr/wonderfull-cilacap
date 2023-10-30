@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
 import auth from "../utils/auth";
 import Logo from "../assets/icon/wonderfull-cilacap-logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const Header = (props) => {
   const handleBannerClick = () => {
@@ -91,7 +93,7 @@ const Header = (props) => {
             {auth.isAuthorized() ? (
               <Dropdown>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                  User Menu
+                  <FontAwesomeIcon icon={faUser} />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item>
@@ -126,7 +128,7 @@ function ButtonLogin () {
 function ButtonLogout() {
   return (
     <a
-      className="btn btn-danger"
+      className="btn btn-danger dropdown-button"
       href="/#"
       onClick={() => auth.logout()}
     >
@@ -136,7 +138,7 @@ function ButtonLogout() {
 }
 function ButtonAdmin() {
   return (
-    <Link to="/manage-destination" className="btn btn-primary">
+    <Link to="/manage-destination" className="btn btn-primary dropdown-button">
       Admin
     </Link>
   );

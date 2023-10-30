@@ -83,7 +83,7 @@ const Destination = forwardRef((props, ref) => {
           aria-label="Search"
           style={{
             borderRadius: "20px",
-            boxShadow: "0px 4px 40px 0px rgba(115, 115, 115, 0.2)",
+            boxShadow: "0px 4px 40px 0px rgba(115, 115, 115, 0.1)",
             marginTop: "30px",
           }}
         />

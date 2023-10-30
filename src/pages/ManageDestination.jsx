@@ -4,7 +4,7 @@ import {
   fetchGetDestinations,
   selectDestinations,
 } from "../store/getDestination";
-import ThreeDots from "react-loading-skeleton";
+import { ThreeCircles } from "react-loader-spinner";
 import Sidebar from "../components/Sidebar";
 import { Table } from "react-bootstrap";
 import viewIcon from "../assets/icon/eye.svg";
@@ -48,16 +48,22 @@ function ManageDestination() {
           <div className="col-md-11 my-5 manage-destination">
             <h2>Manage Destination</h2>
             {stateDestinations.status === "loading" && (
-              <ThreeDots
-                height={400}
-                width={400}
-                radius={9}
-                color="#4fa94d"
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClassName=""
-                visible={true}
-              />
+              <div className="container-detail">
+                <div className="loading-indicator d-flex justify-content-center mt-5 mb-5">
+                  <ThreeCircles
+                    height="100"
+                    width="100"
+                    color="blue"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                    ariaLabel="three-circles-rotating"
+                    outerCircleColor=""
+                    innerCircleColor=""
+                    middleCircleColor=""
+                  />
+                </div>
+              </div>
             )}
             {stateDestinations.status === "failed" && (
               <div>
@@ -156,7 +162,9 @@ function ManageDestination() {
                 <h5 className="mt-3 text-primary">
                   {selectedDestination.location}
                 </h5>
-                <p>{selectedDestination.description}</p>
+                <p className="text-justify">
+                  {selectedDestination.description}
+                </p>
               </div>
               <div className="modal-footer">
                 <button
