@@ -95,7 +95,7 @@ function EditDestination() {
       <div className="container-fluid">
         <div className="row">
           <Sidebar />
-          <div className="col-md-10 p-0">
+          <div className="col-md-10 p-0 content-add">
             <h3>Admin Dashboard</h3>
             <Form className="col-md-6 my-5 form-add" onSubmit={handleSubmit}>
               <h2>Update Destination</h2>
