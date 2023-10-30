@@ -20,7 +20,7 @@ const Destination = forwardRef((props, ref) => {
     <div className="container-destinations" ref={ref}>
       <h2>Top Destinations to Visit</h2>
       {stateDestinations.status === "loading" && (
-        <div className="container-detail">
+        <div>
           <div className="loading-indicator d-flex justify-content-center mt-5 mb-5">
             <ThreeCircles
               height="100"
