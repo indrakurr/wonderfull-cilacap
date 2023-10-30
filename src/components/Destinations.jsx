@@ -1,8 +1,12 @@
 import React, { useEffect, forwardRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGetDestinations, selectDestinations,} from "../store/getDestinationSlice";
+import {
+  fetchGetDestinations,
+  selectDestinations,
+} from "../store/getDestination";
 import { Link } from "react-router-dom";
 import search from "../assets/icon/search.svg";
+import ThreeDots from "react-loading-icons/dist/esm/components/three-dots";
 
 const Destination = forwardRef((props, ref) => {
   const stateDestinations = useSelector(selectDestinations);
@@ -16,7 +20,16 @@ const Destination = forwardRef((props, ref) => {
     <div className="container-destinations" ref={ref}>
       <h2>Top Destinations to Visit</h2>
       {stateDestinations.status === "loading" && (
-        <div className="loading-indicator">Loading...</div>
+        <ThreeDots
+          height="400"
+          width="400"
+          radius="9"
+          color="#4fa94d"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
       )}
 
       {stateDestinations.status === "failed" && (
@@ -38,9 +51,9 @@ const Destination = forwardRef((props, ref) => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{destination.destinationName}</h5>
-                  <p className="card-text">{destination.overview}</p>
+                  <p className="card-text-location">{destination.location}</p>
                   <Link
-                    to={`/detail-destination/${destination.id}`}
+                    to={`/edit-destination/${destination.id}`}
                     className="btn btn-primary"
                   >
                     View Detail

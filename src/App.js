@@ -5,6 +5,7 @@ import DetailDestination from "./pages/DetailDestination";
 import LoginPage from "./pages/LoginPage";
 import AddDestination from "./pages/AddDestination"
 import ManageDestination from "./pages/ManageDestination";
+import EditDestination from "./pages/EditDestination";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/manage-destination" element={<ManageDestination />} />
           <Route path="/add-destination" element={<AddDestination />} />
+          <Route path="/edit-destination/:id" element={<EditDestination />} />
         </Routes>
       </BrowserRouter>
     </>
