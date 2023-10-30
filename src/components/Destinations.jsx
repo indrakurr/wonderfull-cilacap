@@ -53,7 +53,7 @@ const Destination = forwardRef((props, ref) => {
                   <h5 className="card-title">{destination.destinationName}</h5>
                   <p className="card-text-location">{destination.location}</p>
                   <Link
-                    to={`/edit-destination/${destination.id}`}
+                    to={`/detail-destination/${destination.id}`}
                     className="btn btn-primary"
                   >
                     View Detail
