@@ -137,8 +137,8 @@ function ManageDestination() {
           role="dialog"
           style={{ display: "block" }}
         >
-          <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content px-2">
+          <div className="modal-dialog modal-lg modal-dialog-view" role="document">
+            <div className="modal-content modal-view px-2">
               <div className="modal-header">
                 <h5 className="modal-title">
                   {selectedDestination.destinationName}
