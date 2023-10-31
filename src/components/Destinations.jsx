@@ -1,4 +1,4 @@
-import React, { useEffect, forwardRef } from "react";
+import React, { useEffect, forwardRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchGetDestinations,
@@ -7,14 +7,47 @@ import {
 import { Link } from "react-router-dom";
 import search from "../assets/icon/search.svg";
 import { ThreeCircles } from "react-loader-spinner";
+import { Modal, Button } from "react-bootstrap";
 
 const Destination = forwardRef((props, ref) => {
   const stateDestinations = useSelector(selectDestinations);
   const dispatch = useDispatch();
 
+  // State untuk nilai pencarian
+  const [searchQuery, setSearchQuery] = useState("");
+  // State untuk hasil pencarian
+  const [searchResults, setSearchResults] = useState([]);
+  // State untuk mengontrol kapan modal ditampilkan
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     dispatch(fetchGetDestinations());
   }, [dispatch]);
+
+  // Fungsi untuk meng-handle perubahan pada input pencarian
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Fungsi untuk melakukan pencarian
+  const performSearch = () => {
+    return stateDestinations.data.filter((destination) =>
+      destination.destinationName
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
+    );
+  };
+
+  // Fungsi untuk menampilkan modal
+  const openModal = () => {
+    setSearchResults(performSearch());
+    setShowModal(true);
+  };
+
+  // Fungsi untuk menutup modal
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="container-destinations" ref={ref}>
@@ -75,6 +108,7 @@ const Destination = forwardRef((props, ref) => {
         className="d-flex search col-xl-12 col-md-8 col-sm-8 justify-content-center"
         role="search"
         id="search"
+        onSubmit={(e) => e.preventDefault()}
       >
         <input
           className="form-control me-2"
@@ -86,11 +120,47 @@ const Destination = forwardRef((props, ref) => {
             boxShadow: "0px 4px 40px 0px rgba(115, 115, 115, 0.1)",
             marginTop: "30px",
           }}
+          value={searchQuery}
+          onChange={handleSearchInputChange}
         />
-        <button className="input-group-text" type="submit">
+        <button className="input-group-text" type="submit" onClick={openModal}>
           <img src={search} alt="Search" />
         </button>
       </form>
+
+      <Modal show={showModal} onHide={closeModal} className="modal-content-search">
+        <Modal.Header closeButton>
+          <Modal.Title>Search Results</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="search-modal">
+          {searchResults.map((destination, index) => (
+            <div>
+              <div className="card-destinations" key={index}>
+                <img
+                  src={destination.destinationImage}
+                  className="card-img-top"
+                  alt="Destination"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{destination.destinationName}</h5>
+                  <p className="card-text-location">{destination.location}</p>
+                  <Link
+                    to={`/detail-destination/${destination.id}`}
+                    className="btn btn-primary"
+                  >
+                    View Detail
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 });

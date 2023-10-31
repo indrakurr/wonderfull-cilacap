@@ -233,6 +233,33 @@ h2 {
   height: 45px;
 }
 
+.search-modal {
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 660px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal-content {
+  width: max-content !important;
+}
+
+.modal-view {
+  width: auto !important;
+}
+
+.modal-dialog {
+  margin-left: 30% !important;
+  margin-right: 70% !important;
+}
+
+.modal-dialog-view {
+  margin: 30% !important;
+  margin-top: 38px !important;
+  margin-bottom: 38px !important;
+}
 /* end destinations */
 
 /* maps */
