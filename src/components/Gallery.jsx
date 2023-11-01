@@ -32,8 +32,8 @@ const Gallery = forwardRef((props, ref) => {
           <div
             className="image-scroll-container d-flex justify-content-start gallery"
             style={{
-              whiteSpace: "nowrap", // Prevent images from wrapping to the next line
-              animation: "scroll 30s linear infinite alternate", // Customize animation duration
+              whiteSpace: "nowrap", 
+              animation: "scroll 30s linear infinite alternate",
             }}
           >
             {imageList.map((image, index) => (
