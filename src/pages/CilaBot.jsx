@@ -13,7 +13,7 @@ const CilaBot = () => {
   const [input, setInput] = useState("");
 
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: process.env.REACT_APP_API_KEY,
     dangerouslyAllowBrowser: true,
   });
 

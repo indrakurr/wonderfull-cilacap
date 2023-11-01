@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-const APIURL = "https://653b3f582e42fd0d54d4d7d9.mockapi.io/destination";
+const APIURL = process.env.REACT_APP_APIURL;
 
 export const APIDestination = {
   //GET all destination
