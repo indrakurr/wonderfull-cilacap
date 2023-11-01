@@ -13,23 +13,18 @@ const Destination = forwardRef((props, ref) => {
   const stateDestinations = useSelector(selectDestinations);
   const dispatch = useDispatch();
 
-  // State untuk nilai pencarian
   const [searchQuery, setSearchQuery] = useState("");
-  // State untuk hasil pencarian
   const [searchResults, setSearchResults] = useState([]);
-  // State untuk mengontrol kapan modal ditampilkan
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(fetchGetDestinations());
   }, [dispatch]);
 
-  // Fungsi untuk meng-handle perubahan pada input pencarian
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  // Fungsi untuk melakukan pencarian
   const performSearch = () => {
     return stateDestinations.data.filter((destination) =>
       destination.destinationName
@@ -38,13 +33,11 @@ const Destination = forwardRef((props, ref) => {
     );
   };
 
-  // Fungsi untuk menampilkan modal
   const openModal = () => {
     setSearchResults(performSearch());
     setShowModal(true);
   };
 
-  // Fungsi untuk menutup modal
   const closeModal = () => {
     setShowModal(false);
   };
@@ -128,7 +121,11 @@ const Destination = forwardRef((props, ref) => {
         </button>
       </form>
 
-      <Modal show={showModal} onHide={closeModal} className="modal-content-search">
+      <Modal
+        show={showModal}
+        onHide={closeModal}
+        className="modal-content-search"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Search Results</Modal.Title>
         </Modal.Header>
