@@ -18,6 +18,7 @@ function FormLogin() {
        localStorage.setItem("isLoggedIn", true);
        auth.storeAuthCredential(user.token);
        navigate("/");
+       window.alert("Login Successful!");
      } else if (
        username === dummyUser.username &&
        password === dummyUser.password
@@ -26,6 +27,7 @@ function FormLogin() {
        localStorage.setItem("isLoggedIn", true);
        auth.storeAuthCredential(dummyUser.token); 
        navigate("/");
+       window.alert("Login Successful!");
      } else {
        setErrorMessage("Invalid username or password");
      }
@@ -58,11 +60,11 @@ function FormLogin() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        {errorMessage && <p>{errorMessage}</p>}
         <button type="submit" className="btn btn-primary">
           Login
         </button>
       </form>
-      {errorMessage && <p>{errorMessage}</p>}
     </>
   );
 }
