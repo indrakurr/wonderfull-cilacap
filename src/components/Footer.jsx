@@ -3,6 +3,7 @@ import logo from "../assets/icon/wonderful-cilacap-white-logo.png";
 import instagramLogo from "../assets/icon/instagram.svg";
 import linkedinLogo from "../assets/icon/linkedin.svg";
 import githubLogo from "../assets/icon/github.svg";
+import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   const handleBannerClick = () => {
@@ -26,10 +27,10 @@ const Footer = (props) => {
               <img src={logo} alt="Logo" width="110px" />
             </div>
             <p>
-              Wonderful Cilacap is a tourism website that showcases the
-              natural and cultural wonders of Cilacap, Central Java. Created as
-              a comprehensive guide for travelers looking to explore the charms
-              of this city, the website offers reliable information, beautiful
+              Wonderful Cilacap is a tourism website that showcases the natural
+              and cultural wonders of Cilacap, Central Java. Created as a
+              comprehensive guide for travelers looking to explore the charms of
+              this city, the website offers reliable information, beautiful
               images, and travel recommendations to ensure an unforgettable
               tourism experience.
             </p>
@@ -39,18 +40,26 @@ const Footer = (props) => {
           <div className="col-md-3 col-lg-2 col-xl-3 mx-auto mt-3">
             <h4 className="mb-4 font-weight-bold">Wonderfull Cilacap Menu</h4>
             <p>
-              <a className="text-white" href="/#" onClick={handleBannerClick}>
+              <a
+                className="text-white no-underline"
+                href="/#"
+                onClick={handleBannerClick}
+              >
                 Home
               </a>
             </p>
             <p>
-              <a className="text-white" href="/#" onClick={handleAboutClick}>
+              <a
+                className="text-white no-underline"
+                href="/#"
+                onClick={handleAboutClick}
+              >
                 About
               </a>
             </p>
             <p>
               <a
-                className="text-white"
+                className="text-white no-underline"
                 href="/#"
                 onClick={handleDestinationClick}
               >
@@ -58,9 +67,9 @@ const Footer = (props) => {
               </a>
             </p>
             <p>
-              <a className="text-white" href="/#">
-                FaQ
-              </a>
+              <Link to="/cilabot" className="nav-link">
+                CilaBot
+              </Link>
             </p>
           </div>
           {/* Grid column */}

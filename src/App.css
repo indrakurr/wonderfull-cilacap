@@ -320,6 +320,10 @@ h2 {
   background-color: #0069FF;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+
 /* end footer */
 
 /* detai destination */
